@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 17:17:09 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/10/26 18:23:59 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/10/26 18:44:17 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int	main(void)
 	zombie = newZombie("toto");
 	zombie->annonce();
 	randomChump("poto");
-	zombie->~Zombie();
+	delete zombie;
 	return (0);
 }
