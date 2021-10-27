@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 17:24:58 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/10/27 21:57:12 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/10/28 01:43:18 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,17 @@ void	replace_file(std::fstream &file, std::fstream &replace, std::string str, st
 		i = 0;
 		pos = 0;
 		std::getline(file, content);
-		while (true)
+		while (i != std::string::npos)
 		{
-			std::cout << &content[pos] << std::endl;
 			i = content.find(str, pos);
-			if (i == std::string::npos)
-				break;
-			replace << content.substr(pos, i);
-			replace << str_replace;
-			pos = i + str.length();
+			if (i != std::string::npos)
+			{
+				replace << content.substr(pos, i - pos);
+				replace << str_replace;
+				pos = i + str.length();
+			}
+			else
+				replace << content.substr(pos, content.length() - pos);
 		}
 		if (file.eof() == false)
 			replace << std::endl;
@@ -56,7 +58,7 @@ int	main(int argc, char **argv)
 		return (exit_fail(NULL, "Arguments error"));
 	file.open(argv[1], std::fstream::in);
 	if (file.is_open() == false)
-		return (exit_fail(&file, "Can't open file"));
+		return (exit_fail(NULL, "Can't open file"));
 	replace_name = std::string(argv[1]) + std::string(".replace");
 	replace.open(replace_name.c_str(), std::fstream::out | std::fstream::trunc);
 	if (replace.is_open() == false)
