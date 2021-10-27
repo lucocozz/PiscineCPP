@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 21:21:25 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/10/26 21:39:35 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/10/27 16:13:23 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	stringREF(std::string &str)
 
 int	main(void)
 {
-	std::string	str = "yolo";
+	std::string	str = "HI THIS IS BRAIN";
 
 	std::cout << "string: " << str << std::endl;
 	std::cout << "ADDR: " << &str << std::endl;
