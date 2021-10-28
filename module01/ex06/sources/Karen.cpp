@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 02:02:03 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/10/28 22:27:14 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/10/28 23:54:13 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,38 +41,31 @@ void	Karen::error(void)
 	std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl;
 }
 
-static int	hashString(std::string const str)
-{
-	int	hash = 0;
-	int	magic_nb = 42;
-
-	for (std::string::const_iterator i = str.begin(); i != str.end(); i++)
-	{
-		hash = hash ^ *i;
-		hash *= magic_nb;
-	}
-	return (hash);
-}
-
 void Karen::complain(std::string level)
 {
-	switch (hashString(level))
+	int	i;
+	std::string	strs[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+	i = 0;
+	while (i < 4 && strs[i].compare(level) != 0)
+		i++;
+	switch (i)
 	{
-	case DEBUG:
-		std::cout << "[DEBUG]" << std::endl;
-		this->debug();
-	case INFO:
-		std::cout << "[INFO]" << std::endl;
-		this->info();
-	case WARNING:
-		std::cout << "[WARNING]" << std::endl;
-		this->warning();
-	case ERROR:
-		std::cout << "[ERROR]" << std::endl;
-		this->error();
-		break;
-	default:
-		std::cout << "[Probably complaining about insignificant problems]" << std::endl;
-		break;
+		case 0:
+			std::cout << "[DEBUG]" << std::endl;
+			this->debug();
+		case 1:
+			std::cout << "[INFO]" << std::endl;
+			this->info();
+		case 2:
+			std::cout << "[WARNING]" << std::endl;
+			this->warning();
+		case 3:
+			std::cout << "[ERROR]" << std::endl;
+			this->error();
+			break;
+		default:
+			std::cout << "[Probably complaining about insignificant problems]" << std::endl;
+			break;
 	}
 }
