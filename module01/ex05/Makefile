@@ -2,6 +2,8 @@ NAME := karen
 SRC := 	main.cpp	\
 		Karen.cpp
 
+MAKE = make
+MAKEFLAGS += --ignore-errors
 CXX := clang++
 CXXFLAGS := -Wall -Wextra -Werror -Wpedantic -Wvla -std=c++98 -MMD -MP
 BUILD_DIR := .build
@@ -26,6 +28,13 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
+	./$< WARNING
+	./$< INFO
+	./$< DEBUG
+	./$< ERROR
+	./$< yolo
+	./$<
+	./$< 1 2
 
 $(BUILD_DIR):
 	mkdir $@

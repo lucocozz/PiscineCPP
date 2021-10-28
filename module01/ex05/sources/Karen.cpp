@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 02:02:03 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/10/28 02:33:39 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/10/28 18:19:27 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,14 @@ void	Karen::error(void)
 
 void Karen::complain(std::string level)
 {
+	int					i;
+	Karen				karen;
+	std::string const	str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void				(Karen::*func[4])(void) = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
 
+	i = 0;
+	while (i < 4 && str[i].compare(level) != 0)
+		i++;
+	if (i < 4)
+		(karen.*func[i])();
 }
