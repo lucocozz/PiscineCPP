@@ -1,9 +1,9 @@
-NAME := karen
+NAME := fixed
 SRC := 	main.cpp	\
-		Karen.cpp
+		Fixed.cpp
 
 MAKE = make
-MAKEFLAGS += --ignore-errors
+# MAKEFLAGS += --ignore-errors
 CXX := clang++
 CXXFLAGS := -Wall -Wextra -Werror -Wpedantic -Wvla -std=c++98 -MMD -MP
 BUILD_DIR := .build
