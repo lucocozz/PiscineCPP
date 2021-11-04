@@ -6,15 +6,19 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 18:28:22 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/03 20:22:18 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/04 17:20:29 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+}
+
 ClapTrap::ClapTrap(std::string name)
 {
-	std::cout << "Constructor ClapTrap" << std::endl;
+	std::cout << "Constructor ClapTrap " << name << std::endl;
 	this->_name = name;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -28,7 +32,7 @@ ClapTrap::ClapTrap(ClapTrap &copy)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor ClapTrap" << std::endl;
+	std::cout << "Destructor ClapTrap " << this->getName() << std::endl;
 }
 
 ClapTrap	&ClapTrap::operator=(ClapTrap &claptrap)

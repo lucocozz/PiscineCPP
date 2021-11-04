@@ -6,16 +6,15 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:23:35 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/03 20:24:26 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/04 17:21:22 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-	std::cout << "Constructor ScavTrap" << std::endl;
-	this->_name = name;
+	std::cout << "Constructor ScavTrap " << name << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
@@ -28,7 +27,7 @@ ScavTrap::ScavTrap(ScavTrap &copy)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "Destructor ScavTrap" << std::endl;
+	std::cout << "Destructor ScavTrap " << this->getName() << std::endl;
 }
 
 ScavTrap	&ScavTrap::operator=(ScavTrap &scavtrap)
@@ -38,4 +37,15 @@ ScavTrap	&ScavTrap::operator=(ScavTrap &scavtrap)
 	this->_energyPoints = scavtrap._energyPoints;
 	this->_attackDamage = scavtrap._attackDamage;
 	return (*this);
+}
+
+void	ScavTrap::guardGate(void) const
+{
+	std::cout << this->getName() << " have enterred in Gate keeper mode" << std::endl;
+}
+
+std::ostream	&operator<<(std::ostream &out, ScavTrap const &scavtrap)
+{
+	out << scavtrap.getName();
+	return (out);
 }

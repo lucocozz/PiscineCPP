@@ -6,19 +6,20 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:43:52 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/02 20:08:35 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/04 17:18:54 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap toto("Toto");
+	ScavTrap toto("Toto");
 	ClapTrap tata("Tata");
 
 	toto.attack(tata.getName());
 	tata.takeDamage(toto.getAttackDamage());
-	tata.beRepaired(0);
+	tata.beRepaired(10);
+	toto.guardGate();
 	return (0);
 }

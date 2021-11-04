@@ -1,6 +1,7 @@
-NAME := claptrap
+NAME := ScavTrap
 SRC := 	main.cpp		\
-		ClapTrap.cpp
+		ClapTrap.cpp	\
+		ScavTrap.cpp
 
 MAKE = make
 # MAKEFLAGS += --ignore-errors
