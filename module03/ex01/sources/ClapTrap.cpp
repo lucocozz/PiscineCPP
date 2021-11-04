@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 18:28:22 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/02 20:48:47 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:22:18 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap(std::string name)
 {
-	std::cout << "Constructor" << std::endl;
+	std::cout << "Constructor ClapTrap" << std::endl;
 	this->_name = name;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -28,7 +28,7 @@ ClapTrap::ClapTrap(ClapTrap &copy)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor" << std::endl;
+	std::cout << "Destructor ClapTrap" << std::endl;
 }
 
 ClapTrap	&ClapTrap::operator=(ClapTrap &claptrap)
@@ -67,7 +67,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	this->_energyPoints += amount;
 }
 
-std::ofstream	&operator<<(std::ofstream &out, ClapTrap const &claptrap)
+std::ostream	&operator<<(std::ostream &out, ClapTrap const &claptrap)
 {
 	out << claptrap.getName();
 	return (out);
