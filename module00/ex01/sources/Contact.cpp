@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 19:27:12 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/10/25 19:45:28 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/11 18:13:58 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	Contact::display_attribute(std::string attribute, bool separator)
 
 void	Contact::display_column(int index)
 {
-	std::cout.setf(std::ios::left);
+	std::cout.setf(std::ios::right);
 	display_attribute(index, true);
 	display_attribute(this->_first_name, true);
 	display_attribute(this->_last_name, true);
