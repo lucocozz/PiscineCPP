@@ -5,7 +5,7 @@ SRC := 	main.cpp			\
 		randomChump.cpp
 
 CXX := clang++
-CXXFLAGS := -Wall -Wextra -Werror -Wpedantic -Wvla -std=c++98 -MMD -MP
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 BUILD_DIR := .build
 INCLUDES_DIR := includes
 SOURCE_DIR := sources
@@ -34,7 +34,5 @@ $(BUILD_DIR):
 
 $(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $(INCLUDES_DIR:%=-I %) -c $< -o $@
-
--include $(DEP)
 
 .PHONY: all clean fclean re test
