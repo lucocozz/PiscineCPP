@@ -9,7 +9,7 @@ SRC := 	main.cpp			\
 MAKE = make
 # MAKEFLAGS += --ignore-errors
 CXX := clang++
-CXXFLAGS := -Wall -Wextra -Werror -Wpedantic -Wvla -std=c++98 -MMD -MP -Wshadow -Wno-shadow -g3
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 BUILD_DIR := .build
 INCLUDES_DIR := includes
 SOURCE_DIR := sources
@@ -39,6 +39,6 @@ $(BUILD_DIR):
 $(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $(INCLUDES_DIR:%=-I %) -c $< -o $@
 
--include $(DEP)
+
 
 .PHONY: all clean fclean re test

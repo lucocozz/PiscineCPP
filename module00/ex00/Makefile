@@ -1,7 +1,7 @@
 NAME := megaphone
 SRC := megaphone.cpp
 CXX := clang++
-CXXFLAGS := -Wall -Wextra -Werror -Wpedantic -Wvla -std=c++98 -MMD -MP
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 BUILD_DIR := .build
 DEP := $(SRC:%.cpp=$(BUILD_DIR)/%.d)
 OBJ := $(DEP:.d=.o)
@@ -30,6 +30,6 @@ $(BUILD_DIR):
 $(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
--include $(DEP)
+
 
 .PHONY: all clean fclean re test
