@@ -27,27 +27,10 @@ fclean: clean
 
 re: fclean all
 
-test: $(NAME)
-	./$< WARNING
-	@echo
-	./$< INFO
-	@echo
-	./$< DEBUG
-	@echo
-	./$< ERROR
-	@echo
-	./$< yolo
-	@echo
-	./$<
-	@echo
-	./$< 1 2
-
 $(BUILD_DIR):
 	mkdir $@
 
 $(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $(INCLUDES_DIR:%=-I %) -c $< -o $@
-
-
 
 .PHONY: all clean fclean re test

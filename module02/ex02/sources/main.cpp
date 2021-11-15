@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 23:17:53 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/10/31 02:54:54 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/16 00:31:05 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main(void)
 {
 	Fixed a;
 	Fixed const b(Fixed(5.05f) * Fixed(2));
+
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;

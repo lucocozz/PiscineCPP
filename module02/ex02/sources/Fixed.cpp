@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 22:19:39 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/10/31 02:58:50 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/16 00:24:49 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,21 @@ Fixed	Fixed::operator++(int)
 
 	tmp = *this;
 	this->_rawBits++;
+	return (tmp);
+}
+
+Fixed	&Fixed::operator--(void)
+{
+	this->_rawBits--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	tmp;
+
+	tmp = *this;
+	this->_rawBits--;
 	return (tmp);
 }
 

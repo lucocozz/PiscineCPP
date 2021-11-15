@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 22:20:03 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/10/31 02:42:12 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/16 00:24:08 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ public:
 	Fixed		&operator=(const Fixed &object);
 	Fixed		&operator++(void);
 	Fixed		operator++(int);
+	Fixed		&operator--(void);
+	Fixed		operator--(int);
 	int			getRawBits(void) const;
 	void		setRawBits(int const raw);
 	float		toFloat(void) const;
