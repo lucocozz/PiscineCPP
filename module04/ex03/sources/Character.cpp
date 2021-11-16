@@ -6,13 +6,13 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 18:01:26 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/10 00:41:54 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/16 18:51:16 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(): _name(""), _idx(0)
+Character::Character(): _name("")
 {
 	for (int i = 0; i < INVENTORY_SIZE; i++)
 		this->_inventory[i] = NULL;
@@ -23,7 +23,7 @@ Character::Character(Character &copy)
 	*this = copy;
 }
 
-Character::Character(std::string name): _name(name), _idx(0)
+Character::Character(std::string name): _name(name)
 {
 	for (int i = 0; i < INVENTORY_SIZE; i++)
 		this->_inventory[i] = NULL;
@@ -40,7 +40,13 @@ Character	&Character::operator=(Character &character)
 {
 	this->_name = character._name;
 	for (int i = 0; i < INVENTORY_SIZE; i++)
-			this->_inventory[i] = character._inventory[i];
+	{
+		if (this->_inventory[i] != NULL)
+			delete this->_inventory[i];
+		this->_inventory[i] = NULL;
+		if (character._inventory[i] != NULL)
+			this->_inventory[i] = character._inventory[i]->clone();
+	}
 	return (*this);
 }
 
@@ -51,10 +57,14 @@ std::string const	&Character::getName() const
 
 void	Character::equip(AMateria *m)
 {
-	if (this->_idx == INVENTORY_SIZE)
-		this->_idx = 0;
-	this->_inventory[this->_idx] = m;
-	this->_idx++;
+	for (size_t i = 0; i < INVENTORY_SIZE; i++)
+	{
+		if (this->_inventory[i] == NULL)
+		{
+			this->_inventory[i] = m;
+			break ;
+		}
+	}
 }
 
 void	Character::unequip(int idx)

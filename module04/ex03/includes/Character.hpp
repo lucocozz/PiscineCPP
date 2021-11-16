@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 17:19:20 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/10 00:33:11 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/16 18:50:44 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ class Character: public ICharacter
 {
 private:
 	std::string	_name;
-	int			_idx;
 	AMateria	*_inventory[INVENTORY_SIZE];
 public:
 	Character();
