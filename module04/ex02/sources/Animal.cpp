@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 03:39:10 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/06 17:04:47 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/16 11:55:35 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,6 @@ Animal	&Animal::operator=(Animal const &copy)
 	this->type = copy.type;
 	return (*this);
 }
-
-// Animal	*Animal::operator=(Dog const &copy)
-// {
-// 	this->type = copy.type;
-// 	return (*this);
-// }
-
-// Animal	*Animal::operator=(Cat const &copy)
-// {
-// 	this->type = copy.type;
-// 	return (*this);
-// }
 
 std::string	Animal::getType(void) const
 {

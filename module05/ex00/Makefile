@@ -1,10 +1,6 @@
-NAME := materia
+NAME := Bureaucrat
 SRC := 	main.cpp			\
-		AMateria.cpp		\
-		Character.cpp		\
-		Ice.cpp				\
-		Cure.cpp			\
-		MateriaSource.cpp
+		Bureaucrat.cpp
 
 MAKE = make
 # MAKEFLAGS += --ignore-errors
