@@ -35,6 +35,4 @@ $(BUILD_DIR):
 $(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $(INCLUDES_DIR:%=-I %) -c $< -o $@
 
-
-
 .PHONY: all clean fclean re test
