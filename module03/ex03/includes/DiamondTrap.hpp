@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 21:39:11 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/04 23:46:44 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/20 16:41:13 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
 	DiamondTrap();
 	DiamondTrap(std::string name);
 	DiamondTrap(DiamondTrap &copy);
-	~DiamondTrap();
+	virtual ~DiamondTrap();
 	DiamondTrap				&operator=(DiamondTrap &diamondtrap);
 	virtual std::string		getName(void) const;
 	void					whoAmI(void) const;

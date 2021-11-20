@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:44:38 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/04 23:46:18 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/20 16:41:06 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	ClapTrap();
 	ClapTrap(std::string name);
 	ClapTrap(ClapTrap &copy);
-	~ClapTrap();
+	virtual ~ClapTrap();
 	ClapTrap				&operator=(ClapTrap &claptrap);
 	virtual std::string		getName(void) const;
 	int						getAttackDamage(void) const;

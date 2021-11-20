@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:07:52 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/04 23:22:50 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/20 16:41:20 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ public:
 	FragTrap();
 	FragTrap(std::string name);
 	FragTrap(FragTrap &copy);
-	~FragTrap();
+	virtual ~FragTrap();
 	FragTrap	&operator=(FragTrap &fragtrap);
 	void		highFivesGuys(void) const;
 };
