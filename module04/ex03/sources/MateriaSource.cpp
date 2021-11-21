@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 00:06:40 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/16 20:33:04 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/21 18:54:44 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ void MateriaSource::learnMateria(AMateria *materia)
 {
 	for (size_t i = 0; i < MATERIA_SIZE; i++)
 	{
-		if (this->_materias[i] != NULL)
+		if (this->_materias[i] == NULL)
 		{
 			this->_materias[i] = materia;
-			break;
+			return;
 		}
 	}
+	std::cout << "No more space in materia source for add " << materia->getType() << std::endl;
+	delete materia;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type)

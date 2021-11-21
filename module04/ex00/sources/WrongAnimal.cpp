@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 03:39:10 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/06 05:16:52 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/21 17:00:33 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ WrongAnimal::~WrongAnimal()
 
 WrongAnimal	&WrongAnimal::operator=(WrongAnimal const &copy)
 {
-	this->type = copy.type;
+	this->_type = copy._type;
 	return (*this);
 }
 
 std::string	WrongAnimal::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }
 
 void	WrongAnimal::makeSound(void) const

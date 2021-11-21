@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:32:39 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/06 13:39:14 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/21 17:06:06 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Brain::~Brain()
 
 Brain	&Brain::operator=(Brain &brain)
 {
-	(void)brain;
+	for (size_t i = 0; i < 100; i++)
+		this->_ideas[i] = brain._ideas[i];
 	return (*this);
 }

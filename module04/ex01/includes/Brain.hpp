@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:21:02 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/06 16:48:18 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/21 17:05:44 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 class Brain
 {
-private:
-	std::string	ideas[100];
+protected:
+	std::string	_ideas[100];
 public:
 	Brain();
 	Brain(Brain &copy);

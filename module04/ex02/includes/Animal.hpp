@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 03:21:06 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/06 17:36:00 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/21 17:00:33 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class Animal
 {
 protected:
-	std::string	type;
+	std::string	_type;
 public:
 	Animal();
 	Animal(Animal &copy);

@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 03:46:47 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/06 05:17:59 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/21 17:21:35 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,33 @@
 
 int	main(void)
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	delete j;
-	delete i;
-	delete meta;
-	const WrongAnimal*	aled = new WrongCat();
-	aled->makeSound();
-	delete aled;
+	{
+		const Animal* meta = new Animal();
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+
+		std::cout << std::endl;
+		std::cout << j->getType() << " " << std::endl;
+		std::cout << i->getType() << " " << std::endl;
+		std::cout << std::endl;
+		i->makeSound(); //will output the cat sound!
+		j->makeSound();
+		meta->makeSound();
+
+		std::cout << std::endl;
+		delete j;
+		delete i;
+		delete meta;
+	}
+	{
+		std::cout << std::endl;
+		const WrongAnimal*	aled = new WrongCat();
+
+		std::cout << std::endl;
+		aled->makeSound();
+
+		std::cout << std::endl;
+		delete aled;
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 03:51:57 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/06 16:46:58 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/21 17:06:46 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Cat: public Animal
 {
 private:
-	Brain	*brain;
+	Brain	*_brain;
 public:
 	Cat();
 	Cat(Cat &copy);

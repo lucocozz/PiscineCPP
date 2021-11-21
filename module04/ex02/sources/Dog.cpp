@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 03:54:27 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/06 14:13:21 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/21 17:08:21 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 Dog::Dog(): Animal()
 {
-	this->type = "Dog";
-	this->brain = new Brain();
+	this->_type = "Dog";
+	this->_brain = new Brain();
 	std::cout << "Constructor Dog" << std::endl;
 }
 
@@ -27,12 +27,12 @@ Dog::Dog(Dog &copy): Animal()
 Dog::~Dog()
 {
 	std::cout << "Destructor Dog" << std::endl;
-	delete this->brain;
+	delete this->_brain;
 }
 
 Dog	&Dog::operator=(Dog const &dog)
 {
-	this->type = dog.type;
+	this->_type = dog._type;
 	return (*this);
 }
 

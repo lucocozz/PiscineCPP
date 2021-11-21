@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 18:01:26 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/16 18:51:16 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/21 18:58:25 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ std::string const	&Character::getName() const
 void	Character::equip(AMateria *m)
 {
 	for (size_t i = 0; i < INVENTORY_SIZE; i++)
+		if (this->_inventory[i] == m)
+		{
+			std::cout << "Exactly the same item already are in the inventory: " << m->getType() << std::endl;
+			return;
+		}
+	for (size_t i = 0; i < INVENTORY_SIZE; i++)
 	{
 		if (this->_inventory[i] == NULL)
 		{
@@ -69,12 +75,12 @@ void	Character::equip(AMateria *m)
 
 void	Character::unequip(int idx)
 {
-	if (idx >= 0 && idx <= INVENTORY_SIZE)
+	if (idx >= 0 && idx < INVENTORY_SIZE)
 		this->_inventory[idx] = NULL;
 }
 
 void	Character::use(int idx, ICharacter &target)
 {
-	if (this->_inventory[idx] != NULL)
+	if (idx >= 0 && idx < INVENTORY_SIZE && this->_inventory[idx] != NULL)
 		this->_inventory[idx]->use(target);
 }

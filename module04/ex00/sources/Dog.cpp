@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 03:54:27 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/06 04:21:06 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/21 17:00:33 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Dog::Dog(): Animal()
 {
 	std::cout << "Constructor Dog" << std::endl;
-	this->type = "Dog";
+	this->_type = "Dog";
 }
 
 Dog::Dog(Dog &copy): Animal()
@@ -30,7 +30,7 @@ Dog::~Dog()
 
 Dog	&Dog::operator=(Dog const &copy)
 {
-	this->type = copy.type;
+	this->_type = copy._type;
 	return (*this);
 }
 
