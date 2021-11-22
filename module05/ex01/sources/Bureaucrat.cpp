@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 01:25:29 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/20 20:07:52 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/22 13:37:26 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,6 @@ int	Bureaucrat::getGrade(void) const
 {
 	return (this->_grade);
 }
-
-void	Bureaucrat::setGrade(int grade)
-{
-	this->_grade = grade;
-};
 
 void	Bureaucrat::increaseGrade(void)
 {

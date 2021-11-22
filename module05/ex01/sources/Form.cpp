@@ -6,23 +6,31 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 14:28:25 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/20 20:06:44 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/22 14:02:05 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form(std::string name, int grade): _name(name), _grade(grade)
+Form::Form(std::string name, int gradeToSign, int gradeToExec):
+	_name(name),
+	_gradeToSign(gradeToSign),
+	_gradeToExec(gradeToExec)
 {
-	if (grade < HIGHERGRADE)
+	if (gradeToSign < HIGHERGRADE || gradeToExec < HIGHERGRADE)
 		throw (Form::GradeTooHighException());
-	else if (grade > LOWERGRADE)
+	else if (gradeToSign > LOWERGRADE || gradeToExec > LOWERGRADE)
 		throw (Form::GradeTooLowException());
 	this->_sign = false;
 }
 
-Form::Form(const Form &copy): _name(copy._name), _grade(copy._grade), _sign(copy._sign) {}
+Form::Form(const Form &copy):
+	_name(copy._name),
+	_gradeToSign(copy._gradeToSign),
+	_gradeToExec(copy._gradeToExec)
+{
+}
 
 Form	&Form::operator=(const Form &)
 {
@@ -34,9 +42,14 @@ std::string	Form::getName(void) const
 	return (this->_name);
 }
 
-int	Form::getGrade(void) const
+int	Form::getGradeToSign(void) const
 {
-	return (this->_grade);
+	return (this->_gradeToSign);
+}
+
+int	Form::getGradeToExec(void) const
+{
+	return (this->_gradeToExec);
 }
 
 bool	Form::getSign(void) const
@@ -46,17 +59,17 @@ bool	Form::getSign(void) const
 
 void	Form::beSigned(Bureaucrat &object)
 {
-	if (this->_grade >= object.getGrade())
-	{
-		this->_sign = false;
-		throw (Form::GradeTooLowException());
-	}
+	if (this->_gradeToExec <= object.getGrade())
+		if (this->_gradeToSign <= object.getGrade())
+		{
+			this->_sign = false;
+			throw (Form::GradeTooLowException());
+		}
 	this->_sign = true;
-	object.setGrade(this->_grade);
 }
 
 std::ostream	&operator<<(std::ostream &out, Form &object)
 {
-	out << object.getName() << ", form grade " << object.getGrade();
+	out << object.getName() << ", form grade " << object.getGradeToSign();
 	return (out);
 }
