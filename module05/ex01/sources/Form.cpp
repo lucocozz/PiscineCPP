@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 14:28:25 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/22 14:02:05 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/22 20:44:51 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,16 @@ Form::Form(std::string name, int gradeToSign, int gradeToExec):
 	_gradeToSign(gradeToSign),
 	_gradeToExec(gradeToExec)
 {
-	if (gradeToSign < HIGHERGRADE || gradeToExec < HIGHERGRADE)
-		throw (Form::GradeTooHighException());
-	else if (gradeToSign > LOWERGRADE || gradeToExec > LOWERGRADE)
-		throw (Form::GradeTooLowException());
-	this->_sign = false;
+	try {
+		if (gradeToSign < HIGHERGRADE || gradeToExec < HIGHERGRADE)
+			throw (Form::GradeTooHighException());
+		else if (gradeToSign > LOWERGRADE || gradeToExec > LOWERGRADE)
+			throw (Form::GradeTooLowException());
+		this->_sign = false;
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 Form::Form(const Form &copy):
@@ -59,12 +64,11 @@ bool	Form::getSign(void) const
 
 void	Form::beSigned(Bureaucrat &object)
 {
-	if (this->_gradeToExec <= object.getGrade())
-		if (this->_gradeToSign <= object.getGrade())
-		{
-			this->_sign = false;
-			throw (Form::GradeTooLowException());
-		}
+	if (object.getGrade() > this->_gradeToExec)
+	{
+		this->_sign = false;
+		throw (Form::GradeTooLowException());
+	}
 	this->_sign = true;
 }
 
