@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:17:28 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/22 21:47:19 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/23 17:33:08 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	try {
+		if (this->getSign() != true)
+			throw Form::FormNotSignedException();
 		if (executor.getGrade() > this->getGradeToExec())
 			throw Form::GradeTooLowException();
 		this->executeForm(executor);
@@ -35,14 +37,20 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	}
 }
 
+static unsigned int	hash3(unsigned int h1, unsigned int h2, unsigned int h3)
+{
+    return ((((h1 * 2654435789U) + h2) * 2654435789U) + h3);
+}
+
 void	RobotomyRequestForm::executeForm(Bureaucrat const &target) const
 {
-	int	value;
+	struct timeval time;
 
-	srand(time(NULL));
-	value = rand() % 10;
+	gettimeofday(&time, NULL);
+	srand(hash3(time.tv_sec, time.tv_usec, getpid()));
+
 	std::cout << "*bzzz bzzz*" << std::endl;
-	if (value % 2 == 0)
+	if (rand() % 2 == 0)
 		std::cout << target.getName() << " has been robotomized." << std::endl;
 	else
 		std::cout << "failed to robotomized " << target.getName() << std::endl;

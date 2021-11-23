@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 14:28:25 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/22 20:46:45 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/23 15:05:55 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,22 +64,19 @@ bool	Form::getSign(void) const
 
 void	Form::beSigned(Bureaucrat &object)
 {
-	try {
-		if (object.getGrade() > this->_gradeToSign)
-		{
-			this->_sign = false;
-			throw (Form::GradeTooLowException());
-		}
-		this->_sign = true;
+	if (object.getGrade() > this->_gradeToSign)
+	{
+		this->_sign = false;
+		throw (Form::GradeTooLowException());
 	}
-	catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
+	this->_sign = true;
 }
 
 void	Form::execute(Bureaucrat const &executor) const
 {
 	try {
+		if (this->_sign != true)
+			throw Form::FormNotSignedException();
 		if (executor.getGrade() > this->_gradeToExec)
 			throw Form::GradeTooLowException();
 	}

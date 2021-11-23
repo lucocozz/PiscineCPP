@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 13:33:45 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/22 21:21:31 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/23 14:36:59 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,17 @@ public:
 		~GradeTooHighException() throw() {};
 		virtual const char	*what(void) const throw() {
 			return ("Exception:GradeTooHigh");
+		};
+	};
+
+
+	class FormNotSignedException: public std::exception
+	{
+	public:
+		FormNotSignedException(void) throw() {};
+		~FormNotSignedException() throw() {};
+		virtual const char	*what(void) const throw() {
+			return ("Exception:FormNotSigned");
 		};
 	};
 };

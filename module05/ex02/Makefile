@@ -25,6 +25,7 @@ all: $(NAME)
 
 clean:
 	rm -rf $(BUILD_DIR)
+	rm titi_shrubbery
 
 fclean: clean
 	rm -f $(NAME)

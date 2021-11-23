@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:24:38 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/22 21:33:27 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/23 14:39:15 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPard
 void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	try {
+		if (this->getSign() != true)
+			throw Form::FormNotSignedException();
 		if (executor.getGrade() > this->getGradeToExec())
 			throw Form::GradeTooLowException();
 		this->executeForm(executor);

@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:16:18 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/22 22:04:43 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/23 14:49:43 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	try {
+		if (this->getSign() != true)
+			throw Form::FormNotSignedException();
 		if (executor.getGrade() > this->getGradeToExec())
 			throw Form::GradeTooLowException();
 		this->executeForm(executor);
@@ -43,25 +45,25 @@ void	ShrubberyCreationForm::executeForm(Bureaucrat const &target) const
 	file.open(filename.c_str());
 	if (file.is_open() == true)
 	{
-		file << "    		   ****		\
-		     ********					\
-		    **  ******					\
-		     *   ******     ******		\
-		         ******   *********		\
-		          ****  *****   ***		\
-		          ***  ***     **		\
-		    *************       *		\
-		  ******************			\
-		 *****   H*****H*******			\
-		 ***     H-___-H  *********		\
-		  ***    H     H      *******	\
-		   **    H-___-H        *****	\
-		     *   H     H         ****	\
-		         H     H         ***	\
-		         H-___-H         **		\
-		         H     H         *		\
-		         H-___-H				\
-										\
+		file << "    		   ****		\n\
+		     ********					\n\
+		    **  ******					\n\
+		     *   ******     ******		\n\
+		         ******   *********		\n\
+		          ****  *****   ***		\n\
+		          ***  ***     **		\n\
+		    *************       *		\n\
+		  ******************			\n\
+		 *****   H*****H*******			\n\
+		 ***     H-___-H  *********		\n\
+		  ***    H     H      *******	\n\
+		   **    H-___-H        *****	\n\
+		     *   H     H         ****	\n\
+		         H     H         ***	\n\
+		         H-___-H         **		\n\
+		         H     H         *		\n\
+		         H-___-H				\n\
+										\n\
 		         ALOHA!! " << std::endl;
 		file.close();
 	}
