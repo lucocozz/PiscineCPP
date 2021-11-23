@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:32:39 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/21 17:06:06 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/23 14:16:39 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Brain::Brain()
 
 Brain::Brain(Brain &copy)
 {
+	std::cout << "Copy Constructor Brain" << std::endl;
 	*this = copy;
 }
 

@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 03:46:47 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/21 17:15:26 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/23 14:15:51 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,33 @@
 
 int	main(void)
 {
-	const Animal *zoo[4];
-
-	for (int i = 0; i < 4; i++)
 	{
-		if (i < 2)
-			zoo[i] = new Dog();
-		else
-			zoo[i] = new Cat();
+		const Animal *zoo[4];
+
+		for (int i = 0; i < 4; i++)
+		{
+			if (i < 2)
+				zoo[i] = new Dog();
+			else
+				zoo[i] = new Cat();
+			std::cout << std::endl;
+		}
+		for (int i = 0; i < 4; i++)
+		{
+			delete zoo[i];
+			std::cout << std::endl;
+		}
 		std::cout << std::endl;
 	}
-	for (int i = 0; i < 4; i++)
 	{
-		delete zoo[i];
 		std::cout << std::endl;
+		Dog *titi = new Dog();
+		std::cout << std::endl;
+		Dog *tata = new Dog(*titi);
+
+		std::cout << std::endl;
+		delete titi;
+		delete tata;
 	}
 	return (0);
 }

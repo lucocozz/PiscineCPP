@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 03:54:27 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/21 17:07:58 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/23 14:22:21 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ Cat::Cat(): Animal()
 	std::cout << "Constructor Cat" << std::endl;
 }
 
-Cat::Cat(Cat &copy): Animal()
+Cat::Cat(Cat &copy): Animal(), _brain(NULL)
 {
 	*this = copy;
+	std::cout << "Copy Constructor Cat" << std::endl;
 }
 
 Cat::~Cat()
@@ -33,6 +34,9 @@ Cat::~Cat()
 Cat	&Cat::operator=(Cat const &cat)
 {
 	this->_type = cat._type;
+	if (this->_brain != NULL)
+		delete this->_brain;
+	this->_brain = new Brain(*cat._brain);
 	return (*this);
 }
 
