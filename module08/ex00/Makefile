@@ -1,4 +1,4 @@
-NAME := template
+NAME := easyFind
 SRC := 	main.cpp				\
 
 MAKE = make
