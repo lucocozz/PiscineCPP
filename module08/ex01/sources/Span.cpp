@@ -6,7 +6,7 @@
 /*   By: lucocozz <lucocozz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 20:27:57 by lucocozz          #+#    #+#             */
-/*   Updated: 2021/11/28 21:19:19 by lucocozz         ###   ########.fr       */
+/*   Updated: 2021/11/28 21:36:31 by lucocozz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,4 @@ void	Span::addNumber(std::vector<int>::iterator start, std::vector<int>::iterato
 		this->addNumber(*start);
 		start++;
 	}
-	
 }
